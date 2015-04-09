@@ -196,7 +196,7 @@ public class SNJFrame extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel7.setText("Nomina");
         nomina.add(jLabel7);
-        jLabel7.setBounds(500, 10, 60, 20);
+        jLabel7.setBounds(500, 10, 60, 18);
 
         salirG.setText("Atras");
         salirG.addActionListener(new java.awt.event.ActionListener() {
@@ -260,15 +260,15 @@ public class SNJFrame extends javax.swing.JFrame {
 
         jLabel4.setText("Nombre");
         ingreso.add(jLabel4);
-        jLabel4.setBounds(520, 140, 60, 14);
+        jLabel4.setBounds(520, 140, 60, 17);
 
         jLabel5.setText("Cargo");
         ingreso.add(jLabel5);
-        jLabel5.setBounds(520, 210, 60, 14);
+        jLabel5.setBounds(520, 210, 60, 17);
 
         jLabel6.setText("Sueldo");
         ingreso.add(jLabel6);
-        jLabel6.setBounds(520, 270, 80, 14);
+        jLabel6.setBounds(520, 270, 80, 17);
         ingreso.add(jTextFieldNombre);
         jTextFieldNombre.setBounds(430, 170, 220, 30);
         ingreso.add(jTextFieldCargo);
@@ -283,7 +283,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         ingreso.add(jButton2);
-        jButton2.setBounds(430, 340, 90, 23);
+        jButton2.setBounds(430, 340, 90, 29);
 
         salirSec.setText("Atras");
         salirSec.addActionListener(new java.awt.event.ActionListener() {
@@ -292,7 +292,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         ingreso.add(salirSec);
-        salirSec.setBounds(550, 340, 100, 23);
+        salirSec.setBounds(550, 340, 100, 29);
 
         confirmacion.setForeground(new java.awt.Color(0, 204, 51));
         ingreso.add(confirmacion);
@@ -323,7 +323,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         login.add(loginIn);
-        loginIn.setBounds(490, 340, 100, 23);
+        loginIn.setBounds(490, 340, 100, 29);
         login.add(jPasswordField1);
         jPasswordField1.setBounds(420, 290, 240, 30);
 
@@ -343,15 +343,15 @@ public class SNJFrame extends javax.swing.JFrame {
 
         jLabel12.setText("Nombre");
         actualizar.add(jLabel12);
-        jLabel12.setBounds(520, 140, 60, 14);
+        jLabel12.setBounds(520, 140, 60, 17);
 
         jLabel13.setText("Cargo");
         actualizar.add(jLabel13);
-        jLabel13.setBounds(520, 210, 60, 14);
+        jLabel13.setBounds(520, 210, 60, 17);
 
         jLabel14.setText("Sueldo");
         actualizar.add(jLabel14);
-        jLabel14.setBounds(520, 270, 80, 14);
+        jLabel14.setBounds(520, 270, 80, 17);
         actualizar.add(jTextFieldNombreA);
         jTextFieldNombreA.setBounds(430, 170, 220, 30);
         actualizar.add(jTextFieldCargoA);
@@ -366,7 +366,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         actualizar.add(IActualizar);
-        IActualizar.setBounds(490, 340, 100, 23);
+        IActualizar.setBounds(490, 340, 100, 29);
 
         confirmacionA.setForeground(new java.awt.Color(0, 204, 51));
         actualizar.add(confirmacionA);
@@ -379,7 +379,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         actualizar.add(atras);
-        atras.setBounds(990, 500, 59, 30);
+        atras.setBounds(990, 500, 48, 30);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel15.setText("Actualizar datos empleados");
@@ -388,7 +388,7 @@ public class SNJFrame extends javax.swing.JFrame {
 
         jLabel16.setText("Ingresar nombre del empleado a actualizar:");
         actualizar.add(jLabel16);
-        jLabel16.setBounds(310, 510, 210, 14);
+        jLabel16.setBounds(310, 510, 210, 17);
         actualizar.add(jTextFieldBA);
         jTextFieldBA.setBounds(530, 500, 230, 30);
 
@@ -399,7 +399,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         actualizar.add(jButton1);
-        jButton1.setBounds(780, 500, 65, 30);
+        jButton1.setBounds(780, 500, 60, 30);
 
         warningA.setForeground(new java.awt.Color(255, 0, 51));
         actualizar.add(warningA);
@@ -461,7 +461,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         menuSecre.add(jButton7);
-        jButton7.setBounds(980, 540, 53, 23);
+        jButton7.setBounds(980, 540, 41, 29);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setText("Sistema de Nomina");
@@ -500,7 +500,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         menuGerente.add(jButton10);
-        jButton10.setBounds(973, 550, 70, 23);
+        jButton10.setBounds(973, 550, 70, 29);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel18.setText("Sistema nomina");
@@ -630,7 +630,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         registro.add(jButton12);
-        jButton12.setBounds(960, 540, 59, 23);
+        jButton12.setBounds(960, 540, 48, 29);
 
         jLabel27.setForeground(new java.awt.Color(0, 153, 0));
         registro.add(jLabel27);
@@ -656,14 +656,14 @@ public class SNJFrame extends javax.swing.JFrame {
         infoEmple.add(jLabel30);
         jLabel30.setBounds(210, 130, 120, 17);
         infoEmple.add(jTextFieldNom);
-        jTextFieldNom.setBounds(330, 130, 160, 20);
+        jTextFieldNom.setBounds(330, 130, 160, 27);
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel31.setText("Ingrese cargo:");
         infoEmple.add(jLabel31);
         jLabel31.setBounds(530, 130, 110, 17);
         infoEmple.add(jTextFieldCar);
-        jTextFieldCar.setBounds(640, 130, 180, 20);
+        jTextFieldCar.setBounds(640, 130, 180, 27);
 
         jButton13.setText("Mostrar");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -929,6 +929,7 @@ public class SNJFrame extends javax.swing.JFrame {
         double netoP = totalD - totalDed;
         try {
             Statement stmt = cn.createStatement();
+            //crea un stmt de la base  de datos
             String ins = "INSERT INTO NOMINAS VALUES(" + cl.Comision() + "," + cl.AuxT(sueldo) + "," + totalD + "," + cl.SaPe(sueldo) + "," + cl.SaPe(sueldo) + "," + totalDed + "," + netoP + ",'" + jTextFieldNombre.getText() + "','" + jTextFieldCargo.getText() + "'," + sueldo + ");";
             int r = stmt.executeUpdate(ins);
             stmt.close();
