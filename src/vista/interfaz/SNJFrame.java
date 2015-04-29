@@ -9,8 +9,16 @@ import db_connection.Conectadb;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import model.nomina.Calculos;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -80,6 +88,7 @@ public class SNJFrame extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         warning = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jButton16 = new javax.swing.JButton();
         actualizar = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -196,7 +205,7 @@ public class SNJFrame extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel7.setText("Nomina");
         nomina.add(jLabel7);
-        jLabel7.setBounds(500, 10, 60, 18);
+        jLabel7.setBounds(500, 10, 60, 20);
 
         salirG.setText("Atras");
         salirG.addActionListener(new java.awt.event.ActionListener() {
@@ -260,15 +269,15 @@ public class SNJFrame extends javax.swing.JFrame {
 
         jLabel4.setText("Nombre");
         ingreso.add(jLabel4);
-        jLabel4.setBounds(520, 140, 60, 17);
+        jLabel4.setBounds(520, 140, 60, 14);
 
         jLabel5.setText("Cargo");
         ingreso.add(jLabel5);
-        jLabel5.setBounds(520, 210, 60, 17);
+        jLabel5.setBounds(520, 210, 60, 14);
 
         jLabel6.setText("Sueldo");
         ingreso.add(jLabel6);
-        jLabel6.setBounds(520, 270, 80, 17);
+        jLabel6.setBounds(520, 270, 80, 14);
         ingreso.add(jTextFieldNombre);
         jTextFieldNombre.setBounds(430, 170, 220, 30);
         ingreso.add(jTextFieldCargo);
@@ -283,7 +292,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         ingreso.add(jButton2);
-        jButton2.setBounds(430, 340, 90, 29);
+        jButton2.setBounds(430, 340, 90, 23);
 
         salirSec.setText("Atras");
         salirSec.addActionListener(new java.awt.event.ActionListener() {
@@ -292,7 +301,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         ingreso.add(salirSec);
-        salirSec.setBounds(550, 340, 100, 29);
+        salirSec.setBounds(550, 340, 100, 23);
 
         confirmacion.setForeground(new java.awt.Color(0, 204, 51));
         ingreso.add(confirmacion);
@@ -323,7 +332,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         login.add(loginIn);
-        loginIn.setBounds(490, 340, 100, 29);
+        loginIn.setBounds(490, 340, 100, 23);
         login.add(jPasswordField1);
         jPasswordField1.setBounds(420, 290, 240, 30);
 
@@ -336,6 +345,15 @@ public class SNJFrame extends javax.swing.JFrame {
         login.add(jLabel11);
         jLabel11.setBounds(460, 30, 270, 60);
 
+        jButton16.setText("Reporte");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+        login.add(jButton16);
+        jButton16.setBounds(500, 380, 79, 23);
+
         actualizar.setMaximumSize(new java.awt.Dimension(1120, 600));
         actualizar.setMinimumSize(new java.awt.Dimension(1120, 600));
         actualizar.setPreferredSize(new java.awt.Dimension(1120, 600));
@@ -343,15 +361,15 @@ public class SNJFrame extends javax.swing.JFrame {
 
         jLabel12.setText("Nombre");
         actualizar.add(jLabel12);
-        jLabel12.setBounds(520, 140, 60, 17);
+        jLabel12.setBounds(520, 140, 60, 14);
 
         jLabel13.setText("Cargo");
         actualizar.add(jLabel13);
-        jLabel13.setBounds(520, 210, 60, 17);
+        jLabel13.setBounds(520, 210, 60, 14);
 
         jLabel14.setText("Sueldo");
         actualizar.add(jLabel14);
-        jLabel14.setBounds(520, 270, 80, 17);
+        jLabel14.setBounds(520, 270, 80, 14);
         actualizar.add(jTextFieldNombreA);
         jTextFieldNombreA.setBounds(430, 170, 220, 30);
         actualizar.add(jTextFieldCargoA);
@@ -366,7 +384,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         actualizar.add(IActualizar);
-        IActualizar.setBounds(490, 340, 100, 29);
+        IActualizar.setBounds(490, 340, 100, 23);
 
         confirmacionA.setForeground(new java.awt.Color(0, 204, 51));
         actualizar.add(confirmacionA);
@@ -379,7 +397,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         actualizar.add(atras);
-        atras.setBounds(990, 500, 48, 30);
+        atras.setBounds(990, 500, 59, 30);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel15.setText("Actualizar datos empleados");
@@ -388,7 +406,7 @@ public class SNJFrame extends javax.swing.JFrame {
 
         jLabel16.setText("Ingresar nombre del empleado a actualizar:");
         actualizar.add(jLabel16);
-        jLabel16.setBounds(310, 510, 210, 17);
+        jLabel16.setBounds(310, 510, 210, 14);
         actualizar.add(jTextFieldBA);
         jTextFieldBA.setBounds(530, 500, 230, 30);
 
@@ -399,7 +417,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         actualizar.add(jButton1);
-        jButton1.setBounds(780, 500, 60, 30);
+        jButton1.setBounds(780, 500, 65, 30);
 
         warningA.setForeground(new java.awt.Color(255, 0, 51));
         actualizar.add(warningA);
@@ -461,7 +479,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         menuSecre.add(jButton7);
-        jButton7.setBounds(980, 540, 41, 29);
+        jButton7.setBounds(980, 540, 53, 23);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setText("Sistema de Nomina");
@@ -500,7 +518,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         menuGerente.add(jButton10);
-        jButton10.setBounds(973, 550, 70, 29);
+        jButton10.setBounds(973, 550, 70, 23);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel18.setText("Sistema nomina");
@@ -630,7 +648,7 @@ public class SNJFrame extends javax.swing.JFrame {
             }
         });
         registro.add(jButton12);
-        jButton12.setBounds(960, 540, 48, 29);
+        jButton12.setBounds(960, 540, 59, 23);
 
         jLabel27.setForeground(new java.awt.Color(0, 153, 0));
         registro.add(jLabel27);
@@ -656,14 +674,14 @@ public class SNJFrame extends javax.swing.JFrame {
         infoEmple.add(jLabel30);
         jLabel30.setBounds(210, 130, 120, 17);
         infoEmple.add(jTextFieldNom);
-        jTextFieldNom.setBounds(330, 130, 160, 27);
+        jTextFieldNom.setBounds(330, 130, 160, 20);
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel31.setText("Ingrese cargo:");
         infoEmple.add(jLabel31);
         jLabel31.setBounds(530, 130, 110, 17);
         infoEmple.add(jTextFieldCar);
-        jTextFieldCar.setBounds(640, 130, 180, 27);
+        jTextFieldCar.setBounds(640, 130, 180, 20);
 
         jButton13.setText("Mostrar");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -1932,6 +1950,22 @@ public class SNJFrame extends javax.swing.JFrame {
         jPasswordField2.setText("");
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+        Conectadb sqlite = new Conectadb();
+        Connection cn = sqlite.Conectar();
+        String path = "G:\\SN\\src\\reportes\\report1.jasper";
+        try {
+            JasperReport jr = (JasperReport) JRLoader.loadObjectFromFile(path);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, cn);
+            JasperViewer jv = new JasperViewer(jp);
+            jv.setVisible(true);
+            cn.close();
+        } catch (JRException | SQLException ex) {
+            Logger.getLogger(SNJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton16ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1987,6 +2021,7 @@ public class SNJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
